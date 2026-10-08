@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>聖誕傳情活動</title>
+    <link rel="stylesheet" href="xmas.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <!--選單列-->
+    <nav class="nav">
+        <h2 class="logo" id="logo"><a href="#logo">聖誕傳情活動</a></h2>
+        <ul class="nav-menu" id="nav-menu">
+            <li><a href="#schedule">活動時程</a></li>
+            <li><a href="#cards">卡片款式</a></li>
+            <li><a href="#how">玩法說明</a></li>
+        </ul>
+    </nav>
+
+<div class="all">
+    <!--側欄報名表-->
+
+<aside>
+    <div class="apply">
+        <h2>傳遞温暖，讓這個冬日不再孤單。</h2>
+    <form class="apply-form" action="s1151425.php" method="post"> 
+        <label for="sender_email">你的校園信箱</label>
+        <input id="sender_email" name="sender_email" type="email" 
+            pattern="[^@\s]+@mail\.yzu\.edu\.tw" required placeholder="s+學號@mail.yzu.edu.tw">
+        <p class="small">用來寄確認信，匿名寄送時不會顯示給收件人。</p>
+
+        <fieldset>
+        <legend>寄送方式</legend>
+        <label class="choice"><input type="radio" name="mode" value="named" required> 具名</label>
+        <label class="choice"><input type="radio" name="mode" value="anonymous"> 匿名</label>
+        </fieldset>
+
+        <label for="sender_name">你的姓名或暱稱 <span class="optional named-required">具名時必填</span></label>
+        <input id="sender_name" name="sender_name" type="text">
+
+        <label for="sender_phone">你的聯絡電話 <span class="optional named-required">具名時必填</span></label>
+        <input id="sender_phone" name="sender_phone" type="tel" pattern="09\d{8}" placeholder="0912345678" maxlength="10"
+            inputmode="numeric" autocomplete="tel" title="請輸入 09 開頭的 10 碼手機號碼">
+
+        <label for="receiver_email">收件人校園信箱</label>
+        <input id="receiver_email" name="receiver_email" type="email" required
+            pattern="[^@\s]+@mail\.yzu\.edu\.tw">
+
+        <label for="receiver_name">收件人稱呼 <span class="optional">選填</span></label>
+        <input id="receiver_name" name="receiver_name" type="text" placeholder="例如：親愛的小明">
+
+        <fieldset>
+        <legend>卡片款式</legend>
+        <label class="choice"><input type="radio" name="card" value="red"> 紅色</label>
+        <label class="choice"><input type="radio" name="card" value="blue"> 藍色</label>
+        <label class="choice"><input type="radio" name="card" value="green"> 綠色</label>
+        <label class="choice"><input type="radio" name="card" value="yellow"> 黃色</label>
+        </fieldset>
+
+        <label for="message">祝福內容</label>
+        <textarea id="message" name="message" rows="5" maxlength="300" required></textarea>
+        <p class="form-hint"><span id="count">0</span> / 300 字</p>
+        
+
+        <label class="choice agree" style="margin-top: 1rem;">
+        <input type="checkbox" name="agree" required>
+        我已閱讀並同意活動規範與個資聲明<br>
+        </label>
+
+        <button type="submit" class="btn">送出</button>
+        <button type="reset" class="btn">清空</button>
+    </form>
+    </div>
+</aside>
+<div class="main">
+    <!--活動時程-->
+    <section class="schedule" id="schedule">
+        <h2>活動時程</h2>
+        <p>請在 12/22 前填寫傳情表單，12/23 會進行內容審核，12/24 統一寄達收件人信箱。</p>
+        <ol class="timeline">
+        <li><strong>填寫傳情</strong><span>12/22</span></li>
+        <li><strong>內容審核</strong><span>12/23</span></li>
+        <li><strong>統一寄達</strong><span>12/24</span></li>
+        </ol>
+
+    </section>
+    <section class="cards" id="cards">
+        <h2>卡片款式</h2>
+        <p>請選擇你喜歡的卡片款式。</p>
+    <div class="choose-cards" id="choose-cards">
+        <figure class="card-style">
+            <div class="card red"></div>
+            <figcaption>紅色款</figcaption>
+        </figure>
+        <figure class="card-style">
+            <div class="card blue"></div>
+            <figcaption>藍色款</figcaption>
+        </figure>
+        <figure class="card-style">
+            <div class="card green"></div>
+            <figcaption>綠色款</figcaption>
+        </figure>
+        <figure class="card-style">
+            <div class="card yellow"></div>
+            <figcaption>黃色款</figcaption>
+        </figure>
+    </div>
+    </section>
+    <section class="how" id="how">
+        <h2>玩法說明</h2>
+        <div class="modes">
+        <div>
+            <h3>具名寄送</h3>
+            <p>收件人會看到你填的姓名或暱稱。</p>
+        </div>
+        <div>
+            <h3>匿名寄送</h3>
+            <p>寄件人欄位不會顯示您的真實姓名和學號。<br>
+            <sub>我們仍會保留你的校園信箱紀錄，以便處理檢舉。</sub></p>
+        </div>
+        </div>
+        <h2>問題&活動規範</h2>
+        <details>
+            <summary>每個人可以寄幾封？</summary>
+            <p>每人最多 5 封。</p>
+        </details>
+        <details>
+            <summary>可以寄給誰？</summary>
+            <p>只能寄到校內信箱。</p>
+        </details>
+        <details>
+            <summary>哪些內容會被退件？</summary>
+            <p>人身攻擊、騷擾、不雅內容，以及冒用他人名義的卡片。</p>
+        </details>
+        <details>
+            <summary>收到讓我不舒服的卡片怎麼辦？</summary>
+            <p>寄送檢舉信至活動主辦方gmail帳號。</p>
+        </details>
+    </section>
+</div>    
+</div>
+    <footer>
+        <p>&copy; 1151425</p>
+    </footer>
+
+    <script>
+        // 祝福內容字數計數：每次輸入就更新 #count 的數字
+        const message = document.getElementById("message");
+        const count = document.getElementById("count");
+        message.addEventListener("input", function () {
+            count.textContent = message.value.length;
+        });
+        // 具名寄送時，姓名和電話改成必填；匿名時取消必填
+        const form = document.querySelector(".apply-form");
+        const senderName = document.getElementById("sender_name");
+        const senderPhone = document.getElementById("sender_phone");
+        const modeRadios = document.querySelectorAll('input[name="mode"]');
+
+        function updateMode() {
+            const named = document.querySelector('input[name="mode"]:checked')?.value === "named";
+            senderName.required = named;
+            senderPhone.required = named;
+            form.classList.toggle("is-named", named);   // 給 CSS 用來把「具名時必填」標紅
+        }
+
+        modeRadios.forEach(function (radio) {
+            radio.addEventListener("change", updateMode);
+        });
+        updateMode();   // 重新整理頁面時，瀏覽器可能保留之前的選擇
+
+        // 按「清空」後字數歸零、必填狀態也重設（reset 完成後才讀得到新值，所以延後一下）
+        form.addEventListener("reset", function () {
+            setTimeout(function () {
+                count.textContent = 0;
+                updateMode();
+            });
+        });
+    </script>
+
+</body>
+
+</html>

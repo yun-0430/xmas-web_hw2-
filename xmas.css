@@ -1,0 +1,370 @@
+body {
+    margin: 0;
+    font-family: "微軟正黑體", sans-serif;
+    background-color: hwb(35 93% 1%);   /* 米白色背景 */
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* 讓主要內容置中、不要太寬 */
+aside{
+    margin: 30px auto;
+}
+.schedule{
+    margin: 20px ;
+    padding: 30px;
+    border-radius: 10px;/* 讓邊框圓角 */
+    background-color: #e3ded1
+}
+.cards{
+    margin: 30px auto;
+}
+.how{/* 主要內容區塊 */
+    margin: 30px ;
+    padding: 30px;
+    border-radius: 10px;/* 讓邊框圓角 */
+    background-color: #e3ded1;     /* 上下 30px，左右 auto = 置中 */
+}
+h2 {
+    color: #b22222;              /* 聖誕紅 */
+}
+
+
+/* ---------- 2. 選單列 nav（示範） ---------- */
+.nav {
+    display: flex;                   /* 讓 logo 和選單排成一橫排 */
+    justify-content: space-between;  /* logo 靠左、選單靠右 */
+    align-items: center;             /* 垂直置中 */
+    background-color: #b22222;
+    padding: 10px 40px;
+}
+
+.logo {
+    margin: 0;
+}
+
+.logo a {
+    color: white;
+    text-decoration: none; /* 拿掉底線 */
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none; /* 拿掉 li 前面的點點 */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    margin-left: 20px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-menu a:hover {
+    color: #ffd700;              /* 滑鼠移上去變金色 */
+}
+
+
+/* ---------- 3. 報名表（框框示範，輸入欄位請自己做） ---------- */
+.apply {
+    background-color: white;
+    border: 2px solid #aacbab ;   /* 聖誕綠邊框 */
+    border-radius: 10px;
+    padding: 20px 30px;
+    margin: 10px; 
+}
+aside {
+    width: 450px;                /* 電腦版：報名表固定寬度 */
+    flex-shrink: 0;              /* 不要被右邊內容擠窄 */
+}
+.main{
+    flex: 1;                     /* 右邊內容吃掉剩下的寬度 */
+    min-width: 0;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+}
+.all {
+    display: flex;
+    margin: 10px  auto;
+}
+
+.apply-form label {
+    display: block;              /* 讓 label 自己一行，輸入框排在下面 */
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+.apply-form input[type="email"],
+.apply-form input[type="text"],
+.apply-form textarea {
+    width: 100%;
+    box-sizing: border-box;      /* padding 算在寬度裡，才不會超出框框 */
+    padding: 8px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.apply-form input:focus,
+.apply-form textarea:focus {
+    outline: none;
+    border-color: #b22222;       /* 點進去時邊框變聖誕紅 */
+}
+
+fieldset { 
+    margin-top: 12px;
+    border: 1px solid #aacbab;
+    border-radius: 6px;
+    padding: 8px 12px;
+}
+
+legend { 
+    font-weight: bold;
+    padding: 0 4px;
+}
+
+.apply-form label.choice {       /* radio / checkbox 的選項排成一橫排 */
+    display: inline-block;
+    margin: 4px 12px 4px 0;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.small,
+.form-hint {
+    font-size: 0.8rem;
+    color: #888888;
+    margin: 4px 0 0;
+}
+
+.form-hint {
+    text-align: right;
+}
+
+.optional { /* 標示「選填」的文字 */
+    font-size: 0.75rem;
+    font-weight: normal;
+    color: #888888;
+    margin-left: 4px;
+}
+
+.btn {
+    margin-top: 16px;
+    margin-right: 8px;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: #b22222;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #8b1a1a;
+    transform: translateY(-6px) translateX(6px);                    /* 往上移 6px */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn[type="reset"] {
+    background-color: #888888;
+}
+
+
+/* ---------- 4. 活動時程 timeline ---------- */
+.schedule p {
+    margin-top: 0;
+}
+
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;                   /* 留空間給中間的箭頭 */
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+    counter-reset: step;         /* 自動編號 1、2、3 */
+}
+
+.timeline li {
+    position: relative;          /* 讓箭頭可以用 absolute 定位 */
+    flex: 1;                     /* 三格一樣寬 */
+    background-color: white;
+    border-top: 4px solid #b22222;
+    border-radius: 6px;
+    padding: 12px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    counter-increment: step;
+}
+
+.timeline li::before {           /* 圓形步驟編號 */
+    content: counter(step);
+    display: block;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    margin: 0 auto 6px;
+    border-radius: 50%;
+    background-color: #b22222;
+    color: white;
+    font-weight: bold;
+}
+
+.timeline li + li::after {       /* 第 2、3 格左邊加箭頭 */
+    content: "➜";
+    position: absolute;
+    left: -24px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #b22222;
+}
+
+.timeline strong,
+.timeline span {
+    display: block;              /* 標題和日期上下排 */
+}
+
+.timeline span {
+    color: #2e7d32;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+
+/* ---------- 5. 卡片款式（紅色示範，其他三色請自己做） ---------- */
+/* 電腦版：四張卡片一橫排 */
+.choose-cards {
+    display: flex;
+    flex-wrap: wrap;            /* 排不下就自動換行 */
+    justify-content: center;
+    gap: 20px;
+}
+
+
+
+.card-style {
+    margin: 0;
+    text-align: center;
+}
+
+.card {
+    width: 150px;
+    height: 200px;
+    border-radius: 8px;
+}
+
+.card.red {                      /* 同時有 card 和 red 兩個 class */
+    background-color: #c62828;
+    border: 6px dotted #f9fafa;
+}
+.card.red:hover {
+    transform: translateY(-6px) translateX(6px);                    /* 往上移 6px */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+.card.blue {
+    background-color: #1565c0;
+    border: 6px dotted #f9fafa;
+}
+.card.blue:hover {
+    transform: translateY(-6px) translateX(6px);                    /* 往上移 6px */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+.card.green {
+    background-color: #388e3c;
+    border: 6px dotted #f9fafa;
+}
+.card.green:hover {
+    transform: translateY(-6px) translateX(6px);                    /* 往上移 6px */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+.card.yellow {
+    background-color: #ffc107;
+    border: 6px dotted #f9fafa;
+}
+.card.yellow:hover{
+    transform: translateY(-6px) translateX(6px);                    /* 往上移 6px */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- 6. 玩法說明 & FAQ ---------- */
+.modes {
+    display: flex;
+    gap: 20px;
+}
+
+.modes div {
+    flex: 1;                     /* 兩個 div 平分寬度 */
+    background-color: white;
+    border: 2px solid #aacbab;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.modes h3 {
+    margin-top: 0;
+    color: #2e7d32;
+}
+
+details { 
+    background-color: white;
+    border: 1px solid #aacbab;
+    border-radius: 6px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+details p {
+    margin: 8px 0 0;
+}
+
+
+/* ---------- 7. 頁尾 footer（示範） ---------- */
+footer {
+    background-color: #2e7d32;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+/* 螢幕寬度 ≤ 600px 時（手機） */
+@media (max-width: 600px) {
+    .nav {
+        flex-direction: column;
+    }
+
+    .all {
+        flex-direction: column;   /* 報名表和右邊內容改成上下排 */
+    }
+
+    aside {
+        width: auto;              /* 不要再固定 350px，跟著螢幕寬度走 */
+    }
+    ol.timeline {
+        flex-direction: column;   /* timeline 改成直排 */
+    }
+
+    .timeline li + li::after {    /* 直排時箭頭改成朝下、放在上方 */
+        left: 50%;
+        top: -26px;
+        transform: translateX(-50%) rotate(90deg);
+    }
+
+    .modes {
+        flex-direction: column;   /* 玩法說明也改成上下排 */
+    }
+}
