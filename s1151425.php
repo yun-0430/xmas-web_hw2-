@@ -1,15 +1,8 @@
 <?php
 /* 除錯用：想看表單到底送了什麼，把下面兩行的註解拿掉就好
-echo '<pre>'; print_r($_POST); echo '</pre>'; exit;
-*/
+echo '<pre>'; print_r($_POST); echo '</pre>'; exit;*/
 
-// 先找專案資料夾裡的 TCPDF（從 GitHub 下載的版本有附），找不到再找上一層的 ../TCPDF/
-// __DIR__ = 這支 PHP 檔所在的資料夾
-if (file_exists(__DIR__ . '/TCPDF/tcpdf_import.php')) {
-    require_once(__DIR__ . '/TCPDF/tcpdf_import.php');
-} else {
-    require_once('../TCPDF/tcpdf_import.php');
-}
+require_once('../TCPDF/tcpdf_import.php');
 
 /*---------------- 1. 讀取表單資料 -----------------*/
 // 直接寫 $_POST['xxx']，欄位沒送來時會出現 Warning，而且會讓 PDF 壞掉

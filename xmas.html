@@ -24,7 +24,9 @@
 <aside>
     <div class="apply">
         <h2>傳遞温暖，讓這個冬日不再孤單。</h2>
-    <form class="apply-form" action="s1151425.php" method="post"> 
+    <!--防呆：網址無法執行 PHP 時才會顯示（由最下面的 JS 控制）-->
+    <div class="url-warning" id="url-warning" hidden></div>
+    <form class="apply-form" action="s1151425.php" method="post">
         <label for="sender_email">你的校園信箱</label>
         <input id="sender_email" name="sender_email" type="email" 
             pattern="[^@\s]+@mail\.yzu\.edu\.tw" required placeholder="s+學號@mail.yzu.edu.tw">
@@ -176,6 +178,28 @@
                 updateMode();
             });
         });
+
+        // 防呆：從 RStudio（:8787/files/）或直接開檔（file:///）打開時，PHP 不會執行，
+        // 送出只會看到原始碼 → 顯示提醒、附上正確網址，並擋下送出
+        const SCHOOL_URL = "http://140.138.155.243/~s1151425/xmas/xmas.html";
+        const LOCAL_URL  = "http://localhost:8081/xmas/xmas.html";
+        const fromRStudio = location.port === "8787" || location.pathname.startsWith("/files/");
+        const fromFile    = location.protocol === "file:";
+
+        if (fromRStudio || fromFile) {
+            const warning = document.getElementById("url-warning");
+            const where = fromRStudio ? "RStudio" : "直接開啟的檔案";
+            warning.innerHTML =
+                "⚠ 目前是從" + where + "打開的，PHP 不會執行，送出只會看到原始碼。<br>" +
+                "請改用：<a href='" + SCHOOL_URL + "'>學校伺服器</a>（需開 VPN）" +
+                "或 <a href='" + LOCAL_URL + "'>本機 XAMPP</a>";
+            warning.hidden = false;
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();               // 不要送出
+                warning.scrollIntoView({ behavior: "smooth", block: "center" });
+            });
+        }
     </script>
 
 </body>

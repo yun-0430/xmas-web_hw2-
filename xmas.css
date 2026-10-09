@@ -104,6 +104,24 @@ aside {
     margin: 10px  auto;
 }
 
+.url-warning {                   /* 防呆提醒：網址無法執行 PHP 時顯示 */
+    background-color: #fdecea;
+    border: 2px solid #d32f2f;
+    border-radius: 6px;
+    color: #b71c1c;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+}
+
+.url-warning[hidden] {           /* 確保 hidden 時真的不顯示 */
+    display: none;
+}
+
+.url-warning a {
+    color: #b71c1c;
+    font-weight: bold;
+}
+
 .apply-form label {
     display: block;              /* 讓 label 自己一行，輸入框排在下面 */
     margin-top: 12px;
