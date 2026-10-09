@@ -1,3 +1,7 @@
+html {
+    scroll-padding-top: 70px;    /* 點選單跳到各區塊時，預留 nav 的高度，標題才不會被 nav 蓋住 */
+}
+
 body {
     margin: 0;
     font-family: "微軟正黑體", sans-serif;
@@ -16,6 +20,7 @@ aside{
     border-radius: 10px;/* 讓邊框圓角 */
     background-color: #e3ded1
 }
+
 .cards{
     margin: 30px auto;
 }
@@ -37,6 +42,9 @@ h2 {
     align-items: center;             /* 垂直置中 */
     background-color: #b22222;
     padding: 10px 40px;
+    position: sticky; /* 捲動時黏在畫面最上面；不像 fixed 會脫離版面，所以內容不會被蓋住 */
+    top: 0;           /* 黏在距離頂端 0 的位置 */
+    z-index: 100;     /* 讓 nav 在最上層 */
 }
 
 .logo {
@@ -104,6 +112,7 @@ aside {
 
 .apply-form input[type="email"],
 .apply-form input[type="text"],
+.apply-form input[type="tel"],
 .apply-form textarea {
     width: 100%;
     box-sizing: border-box;      /* padding 算在寬度裡，才不會超出框框 */
@@ -240,8 +249,6 @@ legend {
     font-weight: bold;
 }
 
-
-
 /* ---------- 5. 卡片款式（紅色示範，其他三色請自己做） ---------- */
 /* 電腦版：四張卡片一橫排 */
 .choose-cards {
@@ -323,6 +330,10 @@ details {
     padding: 10px 15px;
     margin-bottom: 10px;
 }
+details:hover {
+    transform: translateY(-6px) translateX(6px);                    /* 往上移 6px */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
 
 summary {
     cursor: pointer;
@@ -343,6 +354,10 @@ footer {
 }
 /* 螢幕寬度 ≤ 600px 時（手機） */
 @media (max-width: 600px) {
+    html {
+        scroll-padding-top: 110px; /* 手機版 nav 變成兩行，比較高 */
+    }
+
     .nav {
         flex-direction: column;
     }
